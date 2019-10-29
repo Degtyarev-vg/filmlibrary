@@ -14,7 +14,7 @@ export default {
         'title': 'Game of thrones',
         'description': 'Best serials',
         'whatWatch': 'Serial',
-        'completed': false,
+        'completed': true,
         'editing': false
       }
     ]
@@ -26,12 +26,24 @@ export default {
   },
   actions: {
     newTask ({commit}, payload) {
+      payload.id = Math.random()
+      // Через commit отправляем в mutations
       commit('newTask', payload)
     }
   },
   getters: {
     tasks (state) {
       return state.tasks
+    },
+    taskCompleted (state) {
+      return state.tasks.filter(task => {
+        return task.completed
+      })
+    },
+    taskNotCompleted (state) {
+      return state.tasks.filter(task => {
+        return task.completed === false
+      })
     }
   }
 }
