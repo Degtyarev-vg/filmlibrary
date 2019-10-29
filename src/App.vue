@@ -47,5 +47,5 @@ export default {
 </script>
 
 <style lang="stylus">
-  @import './assets/stylus/uimini.min.css';
+  @import './assets/stylus/base/animation.styl';
 </style>
